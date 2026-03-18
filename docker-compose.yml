@@ -1,6 +1,6 @@
 services:
   db:
-    image: mariadb:10.11
+    image: mariadb:11.3
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpwd
@@ -11,12 +11,17 @@ services:
       - db_data:/var/lib/mysql
 
   moodle:
-    image: moodlehq/moodle-php-apache:8.3
+    image: brandkern/moodle:4.5-latest
     restart: always
     ports:
       - "8080:80"
+    environment:
+      DB_HOST: db
+      DB_NAME: moodle
+      DB_USER: moodle
+      DB_PASS: moodlepwd
+      WWWROOT: http://localhost:8080
     volumes:
-      - ./moodle_source:/var/www/html
       - moodle_data:/var/www/moodledata
     depends_on:
       - db
