@@ -11,7 +11,7 @@ services:
       - db_data:/var/lib/mysql
 
   moodle:
-    image: brandkern/moodle:4.5-latest
+    image: м/moodle:4.5-latest
     restart: always
     ports:
       - "8080:80"
