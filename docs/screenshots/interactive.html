@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивный тест: Основы веб-разработки</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        .quiz-container {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .question {
+            margin-bottom: 24px;
+            padding: 16px;
+            border-left: 4px solid #0077b6;
+            background: #fefefe;
+        }
+        .question-text {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+        .option {
+            display: block;
+            margin: 8px 0;
+            padding: 8px 12px;
+            background: #f0f2f5;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .option:hover {
+            background: #e0e4e9;
+        }
+        .option.selected {
+            background: #cfe8ff;
+            border-left: 3px solid #0077b6;
+        }
+        .option.correct {
+            background: #c8e6d9;
+            border-left: 3px solid #2e7d32;
+        }
+        .option.incorrect {
+            background: #ffcdd2;
+            border-left: 3px solid #c62828;
+            text-decoration: line-through;
+        }
+        button {
+            background: #0077b6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 16px;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #005f8c;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 16px;
+            background: #e9ecef;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        h1 {
+            color: #0077b6;
+        }
+        .h5p-note {
+            margin-top: 30px;
+            padding: 12px;
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>📚 Интерактивный тест: Основы веб-разработки</h1>
+        <p>Проверьте свои знания. Всего 5 вопросов.</p>
+
+        <div id="quiz"></div>
+        <button id="submitBtn">Проверить ответы</button>
+        <div id="result" class="result"></div>
+        
+        <div class="h5p-note">
+            🔗 <strong>Интерактив H5P:</strong> В Moodle этот тест можно создать как H5P «Question Set». 
+            Файл <code>interactive.h5p</code> экспортирован из Moodle и добавлен в репозиторий рядом с этим HTML.
+            Данный HTML-файл — для демонстрации интерактива в репозитории.
+        </div>
+    </div>
+
+    <script>
+        // Вопросы теста
+        const questions = [
+            {
+                text: "Что означает HTML?",
+                options: [
+                    "Hyper Text Markup Language",
+                    "High Tech Modern Language",
+                    "Hyper Transfer Markup Language",
+                    "Home Tool Markup Language"
+                ],
+                correct: 0
+            },
+            {
+                text: "Какой тег используется для создания ссылки?",
+                options: ["<a>", "<link>", "<href>", "<url>"],
+                correct: 0
+            },
+            {
+                text: "Что такое CSS?",
+                options: [
+                    "Cascading Style Sheets",
+                    "Creative Style System",
+                    "Computer Style Sheets",
+                    "Colorful Style Sheets"
+                ],
+                correct: 0
+            },
+            {
+                text: "Какой язык используется для программирования на стороне клиента в браузере?",
+                options: ["Java", "Python", "JavaScript", "C#"],
+                correct: 2
+            },
+            {
+                text: "Что такое Git?",
+                options: [
+                    "Система контроля версий",
+                    "Язык программирования",
+                    "База данных",
+                    "Фреймворк для CSS"
+                ],
+                correct: 0
+            }
+        ];
+
+        let userAnswers = new Array(questions.length).fill(null);
+
+        function renderQuiz() {
+            const quizDiv = document.getElementById('quiz');
+            quizDiv.innerHTML = '';
+            
+            questions.forEach((q, idx) => {
+                const qDiv = document.createElement('div');
+                qDiv.className = 'question';
+                qDiv.dataset.index = idx;
+                
+                const qText = document.createElement('div');
+                qText.className = 'question-text';
+                qText.textContent = `${idx+1}. ${q.text}`;
+                qDiv.appendChild(qText);
+                
+                q.options.forEach((opt, optIdx) => {
+                    const optDiv = document.createElement('div');
+                    optDiv.className = 'option';
+                    optDiv.textContent = opt;
+                    optDiv.dataset.qIdx = idx;
+                    optDiv.dataset.optIdx = optIdx;
+                    
+                    if (userAnswers[idx] === optIdx) {
+                        optDiv.classList.add('selected');
+                    }
+                    
+                    optDiv.addEventListener('click', (e) => {
+                        // Снимаем выделение со всех опций этого вопроса
+                        const siblings = qDiv.querySelectorAll('.option');
+                        siblings.forEach(sib => sib.classList.remove('selected'));
+                        optDiv.classList.add('selected');
+                        userAnswers[idx] = optIdx;
+                        
+                        // Убираем подсветку правильных/неправильных при повторном выборе
+                        siblings.forEach(sib => {
+                            sib.classList.remove('correct', 'incorrect');
+                        });
+                        
+                        // Сбрасываем общий результат
+                        document.getElementById('result').innerHTML = '';
+                    });
+                    
+                    qDiv.appendChild(optDiv);
+                });
+                
+                quizDiv.appendChild(qDiv);
+            });
+        }
+        
+        function checkAnswers() {
+            let score = 0;
+            const total = questions.length;
+            const resultsHtml = [];
+            
+            // Сначала сбросим все подсветки
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+            });
+            
+            for (let i = 0; i < total; i++) {
+                const userAnswer = userAnswers[i];
+                const correctAnswer = questions[i].correct;
+                const isCorrect = (userAnswer === correctAnswer);
+                
+                if (isCorrect) score++;
+                
+                // Подсветка опций
+                const questionDiv = document.querySelector(`.question[data-index='${i}']`);
+                const optionsDivs = questionDiv.querySelectorAll('.option');
+                
+                optionsDivs.forEach((optDiv, optIdx) => {
+                    if (optIdx === correctAnswer) {
+                        optDiv.classList.add('correct');
+                    }
+                    if (optIdx === userAnswer && userAnswer !== correctAnswer) {
+                        optDiv.classList.add('incorrect');
+                    }
+                });
+                
+                const status = isCorrect ? '✅' : '❌';
+                resultsHtml.push(`${status} ${i+1}. ${questions[i].text} — ${isCorrect ? 'Верно' : 'Неверно'}`);
+            }
+            
+            const percent = Math.round((score / total) * 100);
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <strong>Результат: ${score} из ${total} (${percent}%)</strong><br>
+                ${resultsHtml.join('<br>')}
+            `;
+        }
+        
+        document.getElementById('submitBtn').addEventListener('click', checkAnswers);
+        
+        renderQuiz();
+    </script>
+</body>
+</html>
