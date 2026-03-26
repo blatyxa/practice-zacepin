@@ -1,0 +1,342 @@
+Что такое CSS?
+A. Язык программирования
+B. Язык разметки документов
+C. Язык стилей для оформления веб-страниц
+D. База данных
+ANSWER: C
+
+Как расшифровывается CSS?
+A. Creative Style Sheets
+B. Computer Style Sheets
+C. Cascading Style Sheets
+D. Color Style Sheets
+ANSWER: C
+
+Какой тег используется для подключения внешнего CSS-файла?
+A. <style>
+B. <css>
+C. <link>
+D. <script>
+ANSWER: C
+
+Какой атрибут используется в теге <link> для подключения CSS?
+A. type
+B. src
+C. href
+D. rel
+ANSWER: D
+
+Как правильно записать CSS-правило?
+A. {color: red} h1
+B. h1: {color: red}
+C. h1 {color: red}
+D. h1 = {color: red}
+ANSWER: C
+
+Какой селектор выбирает все элементы <p>?
+A. #p
+B. .p
+C. p
+D. *p
+ANSWER: C
+
+Какой селектор выбирает элемент с id="header"?
+A. .header
+B. #header
+C. header
+D. *header
+ANSWER: B
+
+Какой селектор выбирает элементы с class="menu"?
+A. #menu
+B. .menu
+C. menu
+D. *menu
+ANSWER: B
+
+Какой селектор выбирает все элементы на странице?
+A. all
+B. *
+C. body
+D. html
+ANSWER: B
+
+Какой селектор выберет все <p> внутри <div>?
+A. div p
+B. div > p
+C. p div
+D. div + p
+ANSWER: A
+
+Как правильно задать цвет текста красный?
+A. text-color: red
+B. font-color: red
+C. color: red
+D. text: red
+ANSWER: C
+
+Как правильно задать цвет фона?
+A. background-color: blue
+B. bg-color: blue
+C. background: blue
+D. color-background: blue
+ANSWER: A
+
+Какой формат цвета используется в записи #FF0000?
+A. RGB
+B. HEX
+C. HSL
+D. CMYK
+ANSWER: B
+
+Как записать красный цвет в RGB?
+A. rgb(0,0,255)
+B. rgb(255,0,0)
+C. rgb(0,255,0)
+D. rgb(255,255,0)
+ANSWER: B
+
+Какое свойство задает размер шрифта?
+A. font-weight
+B. text-size
+C. font-size
+D. size
+ANSWER: C
+
+Какое свойство делает текст жирным?
+A. font-size: bold
+B. font-weight: bold
+C. text-weight: bold
+D. font: bold
+ANSWER: B
+
+Какое свойство выравнивает текст по центру?
+A. align: center
+B. text-align: center
+C. text-center: center
+D. align-text: center
+ANSWER: B
+
+Какое свойство задает семейство шрифта?
+A. font
+B. font-family
+C. font-style
+D. typeface
+ANSWER: B
+
+Что такое padding в CSS?
+A. Внешний отступ
+B. Внутренний отступ
+C. Рамка
+D. Тень
+ANSWER: B
+
+Что такое margin в CSS?
+A. Внутренний отступ
+B. Внешний отступ
+C. Рамка
+D. Фон
+ANSWER: B
+
+Какое свойство задает рамку элемента?
+A. margin
+B. padding
+C. border
+D. outline
+ANSWER: C
+
+Что делает box-sizing: border-box?
+A. Ширина включает только контент
+B. Ширина включает padding и border
+C. Ширина включает margin
+D. Ширина игнорируется
+ANSWER: B
+
+Как включить Flexbox для контейнера?
+A. display: flexbox
+B. display: flex
+C. flex: true
+D. position: flex
+ANSWER: B
+
+Какое свойство выравнивает элементы по горизонтали во Flexbox?
+A. align-items
+B. justify-content
+C. flex-align
+D. align-content
+ANSWER: B
+
+Какое свойство выравнивает элементы по вертикали во Flexbox?
+A. justify-content
+B. flex-align
+C. align-items
+D. vertical-align
+ANSWER: C
+
+Какое свойство задает направление оси во Flexbox?
+A. flex-axis
+B. flex-wrap
+C. flex-direction
+D. flex-flow
+ANSWER: C
+
+Что делает flex-wrap: wrap?
+A. Элементы не переносятся
+B. Элементы переносятся на новую строку
+C. Элементы сжимаются
+D. Элементы растягиваются
+ANSWER: B
+
+Для чего используются медиазапросы?
+A. Для подключения шрифтов
+B. Для анимации
+C. Для адаптивной верстки
+D. Для работы с JavaScript
+ANSWER: C
+
+Как правильно написать медиазапрос для экранов до 768px?
+A. @media (max-width: 768px)
+B. @media screen (max: 768px)
+C. @media width < 768px
+D. @media (max-screen: 768px)
+ANSWER: A
+
+Какое свойство задает скругление углов?
+A. border-curve
+B. border-radius
+C. corner-radius
+D. rounded-border
+ANSWER: B
+
+Какое свойство добавляет тень элементу?
+A. shadow
+B. box-shadow
+C. element-shadow
+D. drop-shadow
+ANSWER: B
+
+Какой псевдокласс применяется при наведении мыши?
+A. :active
+B. :focus
+C. :hover
+D. :click
+ANSWER: C
+
+Какое значение position привязывает элемент относительно окна браузера?
+A. relative
+B. absolute
+C. fixed
+D. static
+ANSWER: C
+
+Какое свойство задает прозрачность элемента?
+A. transparency
+B. visible
+C. opacity
+D. alpha
+ANSWER: C
+
+Как правильно задать градиентный фон?
+A. background: gradient()
+B. background: linear-gradient()
+C. background-gradient: linear()
+D. gradient: linear()
+ANSWER: B
+
+Что такое z-index?
+A. Индекс слоя (порядок наложения)
+B. Индекс прозрачности
+C. Индекс размера
+D. Индекс позиции
+ANSWER: A
+
+Какое свойство управляет переполнением содержимого?
+A. overflow
+B. scroll
+C. hidden
+D. visible
+ANSWER: A
+
+Как сделать текст заглавными буквами?
+A. text-case: uppercase
+B. text-transform: uppercase
+C. font-case: uppercase
+D. transform: uppercase
+ANSWER: B
+
+Какое свойство задает межстрочный интервал?
+A. line-space
+B. text-spacing
+C. line-height
+D. letter-spacing
+ANSWER: C
+
+Какой селектор выбирает все дочерние элементы?
+A. div child
+B. div > *
+C. div * 
+D. div all
+ANSWER: B
+
+Что делает свойство display: none?
+A. Скрывает элемент, место сохраняется
+B. Скрывает элемент, место удаляется
+C. Делает элемент невидимым
+D. Удаляет элемент из DOM
+ANSWER: B
+
+Что делает свойство visibility: hidden?
+A. Скрывает элемент, место сохраняется
+B. Скрывает элемент, место удаляется
+C. Делает элемент прозрачным
+D. Удаляет элемент
+ANSWER: A
+
+Какое свойство задает минимальную ширину?
+A. min-width
+B. width-min
+C. min-w
+D. smallest-width
+ANSWER: A
+
+Как центрировать элемент по горизонтали с margin?
+A. margin: auto
+B. margin: 0 auto
+C. margin: auto 0
+D. margin: center
+ANSWER: B
+
+Какое свойство задает тип курсора?
+A. mouse
+B. cursor
+C. pointer
+D. hand
+ANSWER: B
+
+Какой псевдоэлемент добавляет контент перед элементом?
+A. :before
+B. ::before
+C. :after
+D. ::front
+ANSWER: B
+
+Что такое каскадность в CSS?
+A. Порядок применения стилей
+B. Наследование стилей
+C. Группировка селекторов
+D. Вложенность правил
+ANSWER: A
+
+Какое свойство задает расстояние между буквами?
+A. letter-spacing
+B. word-spacing
+C. text-spacing
+D. font-spacing
+ANSWER: A
+
+Какой тип позиционирования привязан к обычному потоку документа?
+A. absolute
+B. fixed
+C. relative
+D. static
+ANSWER: D
